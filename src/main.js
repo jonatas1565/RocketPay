@@ -106,14 +106,12 @@ function updateExpirationDate(date) {
 }
 
 cardNumberMasked.on("accept", () => {
+  const cardtype = cardNumberMasked.masked.currentMask.cardtype
+  setCardType(cardtype)
   updateNumber(cardNumberMasked.value)
 })
 
 function updateNumber(number) {
-  const cardtype = cardNumberMasked.masked.currentMask.cardtype
-  setCardType(cardtype)
-  updateNumber(cardNumberMasked.value)
-
   const ccNumber = document.querySelector(".cc-number")
   ccNumber.innerText = number.length === 0 ? "1234 5678 9012 3456" : number
 }
